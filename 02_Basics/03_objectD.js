@@ -42,3 +42,13 @@ console.log(age);
     {},
     {}
 ]
+
+const myObj = {
+    name:"Second",
+    date: Date()
+}
+
+// two object combined within a single object
+const final = {...myObj, ...obj};
+
+console.log(typeof final);
