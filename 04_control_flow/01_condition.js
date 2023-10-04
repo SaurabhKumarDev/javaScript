@@ -30,6 +30,7 @@ if(isLoggedIn) {
 // terniary operator / Short hand if - else
 console.log((isLoggedIn) ? "Successful" : "UnSuccessful");
 
+//Nullish Coalescing Operator (??): null undefined
 // Java Script have some extra feature 
 // Prevent from null or undefined
 // '??' double question mark
