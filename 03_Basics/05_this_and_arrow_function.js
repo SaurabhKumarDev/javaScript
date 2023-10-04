@@ -45,3 +45,12 @@ const temVariable = () => {
 
 // Implicit arrow fn
 const tem2Variable = (num1, num2) =>  (num1+num2);
+
+// Implicit arrow / want to return the object
+const tem3Variable = (num3, num4) => ({
+    one:num3, 
+    two:num4,
+
+});
+
+// console.log(4+tem3Variable(2,4).one);
