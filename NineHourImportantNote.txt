@@ -1,0 +1,46 @@
+                                BASIC INFORMATION OF JavaScript
+
+1.) Parentheses '()' are used in programming to pass parameters to functions.
+2.) Curly braces '{}' are used to define objects in code.
+3.) Square brackets '[]' are employed for creating arrays.
+
+Assignment
+':' colon is used within objects to initialize variables, while '=' equal sign is utilized within functions.
+
+In JavaScript, single quotes '' and double quotes "" are functionally equivalent. The backtick symbol `` offers specific features such as variable interpolation using `${variable_name}`.
+
+Curly braces {} require a 'return' keyword when used in a function, whereas parentheses () do not.
+
+Arrow Function "=>"
+
+Arrow functions allow for concise code.
+The left-side parentheses remove the need for 'function' and 'function_name', while the right-side parentheses handle the operation.
+There's no need to explicitly write 'function' or 'function_name'.
+Example: `() => ()`
+
+Function
+1.) Always use '=' for assignment.
+2.) Functions without parameters are invoked using the function name.
+3.) Functions with return values should be called within a 'print' section of a method with the appropriate arguments.
+4.) Functions can be called using 'function_name()' or '()()', where the first pair of parentheses defines the function, and the second one is for execution.
+
+Context
+1.) Global execution context is always available and includes window methods.
+2.) Function execution context pertains to the current function being executed.
+
+Print statements are allowed within functions but not within objects.
+
+object.function     =       variable is accessible here
+object1.object2.function  =   object1 is not accessible in function =   object2 is accessible in function
+
+Access Hierarchy
+Objects can access functions.
+Objects can access other objects.
+Functions cannot access objects or other functions.
+Checking Whether an Array is an Array or an Object
+
+To determine whether a variable is an array or an object, you can use 'Array.isArray(array_name)'.
+Access Rules
+
+Array than Object is accessible
+Maps and filters function similarly to if-else conditions, offering basic conditional logic.
