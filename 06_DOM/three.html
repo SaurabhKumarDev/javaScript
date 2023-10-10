@@ -1,0 +1,46 @@
+<!-- Creating HTML form JS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    // body
+    const b = document.querySelector('body');
+    b.style.padding = "0";
+    b.style.color = "#ffff";
+    b.style.backgroundColor = "#212121"
+
+    // Create 'Div' tag
+    const div = document.createElement('div');
+
+    // Create Attributes
+    div.className = "myDiv";
+    div.setAttribute('title','titleskdf');
+
+    // Create id
+    div.id = Math.trunc((Math.random() * 10) + 1);
+
+    // Styling div
+    div.style.backgroundColor = "red";
+    div.style.padding = "12px"
+    div.style.color = "green";
+    div.style.innerText = "I am in js file";
+
+    // Create text Node this type of text is transfered to the div block
+    const text = document.createTextNode("Hii I am Saurabh");
+
+    // Adding text to div
+    div.appendChild(text);
+
+    // Transfer div to body
+    document.body.appendChild(div);
+
+</script>
