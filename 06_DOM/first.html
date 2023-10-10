@@ -1,0 +1,91 @@
+<!-- ---------------------------------------------------- Notes ---------------------------------------------------------------
+    1.) window
+    The window object is supported by all browsers. It represents the browser's window.
+    All global JavaScript objects, functions, and variables automatically become members of the window object.
+    Global variables are properties of the window object.
+
+    2.) Complete html file
+    "window.document" and "document" refer to a way to display the entire code of an HTML file in a web browser.
+    
+    3.) HTML Element Selector
+    :: document.getElementById('title'); 
+        Found the first ID with this name, but not the others.
+    :: document.getElementByTagName('h1'); 
+        :: document.getElementsByClassName('className');
+            Every time this is accessed by using the index number
+            But you can not able to use forEach loop in this statement
+            For using forEach loop, you must have to use the Conversion First : Array.form(Stored_variable)
+    
+    4.) Get the Attribute value
+    Enter Selector than (dot)attribute_name
+    document.getElementById('id_name').getAttribute('attribute')
+
+    5.) HTML class attribute
+    Access using selector.className
+
+    6.) Set Attribute
+    Choose the part where you want to change or add a new one attribute.
+    h1.setAttribute('attribute_name','value_of_attribute');
+    
+    7.) storing the document line within variable
+    let title = document.getElementById('id_name')
+
+    8.) Always use quotation marks when accessing HTML elements in JavaScript.
+
+    9.) HTML text
+    .innerHTML = Display all the text with HTMLTag content inside that element, including any style components within the tags.
+    .innerText = Display only the text that was shown on the browser.
+    .textContent = Show all text which is hidden too
+
+    10.) Query selector :: Maximum Use this
+    Select Element : Same as CSS Element Selector (tag,.class,#id)
+    Always select first occured element
+
+    11.) Query Selector All
+    NodeList , Array Operation 
+    Need index number for accessing ; index begin = 0
+    To access each index, employ a forEach loop.
+    Syntax : variable_name_where_stored_the_all_element.forEach(function functionName(){})
+ -->
+
+<!-- ------------------------------------------------- HTML File --------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First</title>
+    <style>
+        .bg-black {
+            background-color: black;
+            color: #ffff;
+        }
+        span {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    
+    <div>    
+        <!-- Heading Tag -->
+        <h1 class="heading" id="title"> Code With Chai <span>First Page of Practice</span></h1>
+        <h2>Heading H2</h2>
+        <h2>Heading H2</h2>
+        <h2>Heading H2</h2>
+        <h2>Heading H2</h2>
+        <h2>Heading H2</h2>
+        <h2>Heading H2</h2>
+
+        <p id="text">Lorem ipsum dolor sit.</p>
+        <input type="password" class="pass">
+
+        <!-- List -->
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
