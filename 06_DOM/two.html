@@ -1,0 +1,59 @@
+<!-- Traversing -->
+<!-- Parent and children in js -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second</title>
+</head>
+<body style="color: #fff; background-color: #212121;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+    </div>
+</body>
+</html>
+
+<script>
+    // Parent Class
+    const parent = document.querySelector('.parent');
+    console.log(parent);
+
+    // Parent Child 
+    let children = parent.children;
+    console.log(children);
+
+    // children single value
+    console.log(parent.children[1]);
+
+    // Printing text from the children
+    console.log(parent.children[1].innerText);
+
+    // Printing all text from the child
+    for (let i=0; i<parent.children.length; i++) {
+        console.log(parent.children[i].innerText);
+    }
+
+    // Parent first element child
+    console.log(parent.firstElementChild);
+
+    // Parent last element child
+    console.log(parent.lastElementChild.innerText);
+
+    // Query selector first class name of 'day' 
+    const dayOne = document.querySelector('.day');
+    console.log(dayOne);
+
+    // Accessing Parent via Child
+    console.log(dayOne.parentElement);
+
+    // Next one/Sibling
+    console.log(dayOne.nextElementSibling);
+
+    // Checking Nodes it will generate NodeList
+    console.log(parent.childNodes);
+
+    // checking one childe node is present or not
+    console.log(parent.hasChildNodes());
+</script>
