@@ -1,0 +1,42 @@
+<!-- When you inspect this file you see the ol have li which is inserted via js -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fourth</title>
+</head>
+<body>
+    <ol></ol>
+</body>
+</html>
+
+<script>
+    // .appendchild is use for adding
+    // .createTextNode is use for adding some text message
+
+    // body
+    const b = document.querySelector('body');
+    b.style.color = "white";
+    b.style.backgroundColor = "black";
+
+    // Function for inserting the value in order list
+    function myfn(name) {
+        const li = document.createElement('li');
+        li.innerText = `${name}`;
+        document.querySelector('ol').appendChild(li);
+    }
+    myfn("javaScript");
+    myfn("Python");
+
+    // another Function for inserting the value in order list
+    function myfunction(lang) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(lang));
+        document.querySelector('ol').appendChild(li);
+    }
+    myfunction("HTML");
+    myfunction("CSS");
+
+</script>
