@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fifth</title>
+</head>
+<body style="color: #ffff; background-color: #212121;">
+    <ul>
+        <li>JS</li>
+        <li>Py</li>
+        <li>DSA</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>SQL</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    // Edit 
+    const li = document.querySelectorAll('li');
+    
+    // 1. Changing the content using innerHTML
+    li[0].innerText = "JavaScript";
+
+    // 2. Optimized way
+    li[1].textContent = "Python";
+    
+    // 3. 
+    const newli = document.createElement('h1');
+    newli.textContent = "PHP";
+    newli.style.color = "red";
+    li[1].replaceWith(newli);
+
+    // 4. Outter HTML -  provide html tag too
+    li[3].outerHTML = "<h1>Hii</h1>";
+
+    // Remove 
+    const tryNewFeature = document.querySelector('li:last-child');
+    tryNewFeature.remove();
+</script>
