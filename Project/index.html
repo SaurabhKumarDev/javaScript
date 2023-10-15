@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+            color: white;
+            margin-top: 30vh;
+        }
+        .box {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        div.button {
+            border-radius: 12px;
+            height: 5rem;
+            width: 5rem;
+        }
+        #yellow {
+            background-color: rgba(255, 255, 0, 0.415);
+        }
+        #green {
+            background-color: rgb(100, 113, 73);
+        }
+        #blue {
+            background-color: rgb(74, 74, 126);
+        }
+        #red {
+            background-color: rgba(255, 0, 0, 0.621);
+        }
+        #black {
+            background-color: rgba(0, 0, 0, 0.408);
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Changer</h1>
+    <div class="box">
+        <div class="button" id="yellow"></div>
+        <div class="button" id="green"></div>
+        <div class="button" id="blue"></div>
+        <div class="button" id="red"></div>
+        <div class="button" id="black"></div>
+    </div>
+    <h2>When you click this boxes <span>You can see that background color is also change</span></h2>
+</body>
+</html>
+
+<script>
+    // Selecting the html content
+    var body = document.querySelector('body');
+    var button = document.querySelectorAll('.button');
+
+    // iterate for each button
+    button.forEach(function (index) {
+
+        // on click event
+        index.addEventListener('click', function (e) {
+            var clicked = e.target.id;
+            body.style.backgroundColor = clicked;
+            console.log(clicked);
+        })
+    })
+</script>
