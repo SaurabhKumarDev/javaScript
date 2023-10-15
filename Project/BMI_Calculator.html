@@ -1,0 +1,234 @@
+<!-- HTML -->
+<html>
+    <head>
+        <title>BMI Calculator - Hitesh Choudhary_Project 2</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-image: radial-gradient(circle, rgb(56, 56, 135), rgb(139, 82, 92), rgb(110, 45, 110));
+                margin: 4rem 0 0 3rem;
+                color: #fff;
+            }
+            h1 {
+                text-align: center;
+            }
+            form {
+                margin: 2rem 0 0 2rem;
+            }
+            input {
+                margin-bottom: 1.5rem;
+                padding: 6px 10px;
+                background-color: #5e35b14d;
+                border: 0;
+                color: white;
+                border-bottom: 2px solid white;
+            }
+            h3 {
+                font-family: 'Tilt Neon', sans-serif;
+                font-size: 30px;
+                margin-top: 5rem;
+            }
+            button {
+                padding: 12px;
+                width: 18vw;
+                border-radius: 12px;
+                background-color: aliceblue;
+            }
+            .results, .converteResult {
+                line-height: 1.5rem;
+                font-size: 24px;
+                color: red;
+                margin-top: 1rem;
+            }
+            .convert {
+                margin-top: 6rem;
+            }
+            .left-right {
+                display: flex;
+                justify-content: space-around;
+            }
+            select {
+                width: 10rem;
+                padding: 8px;
+                border-radius: 12px;
+                border: 1px solid black;
+                margin-bottom: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BMI Calculator</h1>
+
+        <div class="left-right">
+            <form action="">
+                <label for="Height">Height in INCH : </label>
+                <input type="number" placeholder="160" id="Height"> <br>
+                <label for="weight">Weight in POUND : </label> 
+                <input type="number" placeholder="40" id="weight"> <br>
+                <button>Calculate</button>
+                <div class="results"></div>
+                <h3><b>BMI Weight Guide</b></h3>
+                <h4>Under Weight = Less than 18.5</h4>
+                <h4>Normal = 18.6 - 24.9</h4>
+                <h4>OverWeight = 25 - 25.9</h4>
+                <h4>Obese = More than 30</h4>
+                </h4>
+            </form>
+
+            <div class="convert">
+                <h2> Converter (<span id="span1">Meter</span> to Inch)</h2> <br>
+                <input type="number" id="convertIntoInch">
+                <select id="from">
+                    <option value="M">Meter</option>
+                    <option value="KM">Kilometer</option>
+                    <option value="CM">Centimeter</option>
+                    <option value="Foot">Foot</option>
+                </select> <br>
+                <button id="btn">Convert</button>
+
+                <h2> Converter (<span id="span2">KiloGram</span> to Pond)</h2> <br>
+                <input type="number" id="convertIntoPond">
+                <select id="from2">
+                    <option value="KG">Kilogram</option>
+                    <option value="G">Gram</option>
+                    <option value="Carats">Carats</option>
+                    <option value="Stone">Stone</option>
+                </select> <br>
+                <button id="btn2">Convert</button>
+                <div class="converteResult"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- Script 01 -->
+<script>
+    // First achieve the form for processesing it
+    const form = document.querySelector('form');
+
+    // submit event for the process the data
+    form.addEventListener('submit', function (event) {
+        
+        // value is stop to sending anywhere
+        event.preventDefault();
+
+        // achieving the value from the html page and convert it into the int
+        const height = parseInt(document.querySelector('#Height').value);
+        const weight = parseInt(document.querySelector('#weight').value);
+        const results= document.querySelector('.results');
+
+        // Calculate BMI
+        let result = ((weight/(height*height))*703).toFixed(3);
+
+        // Showing the result
+        if (result < 18.5) {
+            results.style.color = 'yellow';
+            results.innerHTML = `Underweight : ${result}`;
+        } else if (result > 18.5 && result < 24.9) { 
+            results.style.color = 'green';
+            results.innerHTML = `Normal : ${result}`;
+        } else if (result > 25 && result < 29.9) {
+            results.style.color = 'blue';
+            results.innerHTML = `Overweight : ${result}`;
+        } else {
+            results.innerHTML = `Obese : ${result}`;
+        }
+    })
+</script>
+
+<!-- Script 2 -->
+<script>
+    // Shown message at Screen - User Entered value type
+    const select = document.querySelector('#from');
+    select.addEventListener('click', function (event) {
+        const span = document.querySelector('#span1');
+        span.innerHTML = select.value;
+    }) 
+
+    // Converting process - Length
+    const btnSubmit = document.querySelector('#btn');
+    btnSubmit.addEventListener('click', function(event) {
+        const select = document.querySelector('#from').value;
+        const convertIntoInch= parseInt(document.querySelector('#convertIntoInch').value);
+        const result = document.querySelector('.converteResult');
+
+        result.style.color = 'black';
+
+        switch(select) {
+            case 'M' : {
+                const res = (convertIntoInch*39.36).toFixed(2);
+                result.innerHTML = `${res} Inch`;
+                break;
+            }
+            case 'KM' : {
+                const res = (convertIntoInch*39370.08).toFixed(2);
+                result.innerHTML = `${res} Inch`;
+                break;
+            }
+            case 'CM' : {
+                const res = (convertIntoInch*0.393701).toFixed(6);
+                result.innerHTML = `${res} Inch`;
+                break;
+            }
+            case 'Foot' : {
+                const res = convertIntoInch*12;
+                result.innerHTML = `${res} Inch`;
+                break;
+            }
+            default : {
+                const res = (convertIntoInch*39.36).toFixed(2);
+                result.innerHTML = `${res} Inch`;
+            }
+        }
+    })
+</script>
+
+<!-- Script 3 -->
+<script>
+    // Shown message at Screen - User Entered value type
+    const selectWeight = document.querySelector('#from2');
+    selectWeight.addEventListener('click', function (event) {
+        const span = document.querySelector('#span2');
+        span.innerHTML = selectWeight.value;
+    }) 
+
+    // Converting process - Weight
+    const btnSubmit2 = document.querySelector('#btn2');
+    btnSubmit2.addEventListener('click', function(event) {
+        const select = document.querySelector('#from2').value;
+        const convertIntoPond= parseInt(document.querySelector('#convertIntoPond').value);
+        const result = document.querySelector('.converteResult');
+
+        result.style.color = 'black';
+
+        switch(select) {
+            case 'KG' : {
+                const res = (convertIntoPond*2.204623).toFixed(6);
+                result.innerHTML = `${res} Pond`;
+                break;
+            }
+            case 'G' : {
+                const res = (convertIntoPond*0.002205).toFixed(6);
+                result.innerHTML = `${res} Pond`;
+                break;
+            }
+            case 'Carats' : {
+                const res = (convertIntoPond*0.000441).toFixed(6);
+                result.innerHTML = `${res} Pond`;
+                break;
+            }
+            case 'Stone' : {
+                const res = convertIntoPond*14;
+                result.innerHTML = `${res} Pond`;
+                break;
+            }
+            default : {
+                const res = (convertIntoPond*2.204623).toFixed(6);
+                result.innerHTML = `${res} Pond`;
+            }
+        }
+    })
+</script>
