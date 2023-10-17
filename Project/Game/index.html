@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game - Guess the number - Hitesh Choudhary - Project 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(35, 35, 35);
+            color: white;
+            position: relative;
+            height: 100vh;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+
+        h1 {
+            background-color: black;
+            padding: 10px;
+        }
+
+        p {
+            line-height: 2.5rem;
+        }
+
+        form {
+            margin-top: 2rem;
+        }
+
+        label {
+            font-size: 30px;
+        }
+
+        .guessField {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 10px 12px;
+            width: 15rem;
+            border: 6px solid gray;
+            font-size: 1rem;
+        }
+
+        #subt {
+            width: 10rem;
+            background-color: black;
+            color: white;
+            border: 0;
+            padding: 12px;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+        }
+
+        #subt:hover {
+            color: red;
+        }
+
+        .hint {
+            font-size: 1.8rem;
+        }
+
+        button {
+            position: absolute;
+            padding: 12px;
+            width: 12rem;
+            border-radius: 12px;
+            font-size: 17px;
+            bottom: 20vh;
+            border: 0;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Number guessing game</h1>
+        <p>Try and guess a random number between 1 and 100.</p>
+        <p>You have 10 attempts to guess the right number.</p>
+
+        <form class="form">
+            <label for="guessField">Guess a number</label> <br>
+            <input type="text" id="guessField" class="guessField" autocomplete="off"> <br>
+            <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+        </form>
+
+        <div class="resultParas">
+            <p>Previous Guesses : <span id="guesses"></span></p>
+            <p>Guesses Remaining : <span id="lastResult">10</span></p> <br>
+            <p class="hint"></p>
+        </div>
+
+        <button>Restart</button>
+    </div>
+</body>
+
+</html>
+
+<!-- Script -->
+<script>
+    // Fetching HTML tag's in the js
+    const guess = document.querySelector('.guessField');
+    const submit = document.querySelector('.guessSubmit');
+    const history = document.querySelector('#guesses');
+    const remaining = document.querySelector('#lastResult');
+    const hint = document.querySelector('.hint');
+    const button = document.querySelector('button');
+
+    // Some useful variable
+    let random = Math.trunc(Math.random() * 100);
+    let arrHis = [];
+    let temp = 0;
+    let end = 9;
+    let gamePlay = true;
+
+    // What happen when game is played
+    if (gamePlay) {
+        submit.addEventListener('click', function (e) {
+            e.preventDefault();
+            guesses = parseInt(guess.value);
+            validation(guesses);
+        }) 
+    }
+
+    // Validation - Entered by the user 
+    function validation(guess) {
+        if (guess == '0') {
+            hint.innerHTML = 'Please enter number between 1 to 100';
+        } else if (isNaN(guess)) {
+            hint.innerHTML = '';
+            alert('pehle numberr nu daal ly phir submit kaari')
+        } else if (guess > 100 || guess < 0) {
+            hint.innerHTML = 'Allowed number between 1 to 100';
+        } else {
+            remaining.innerHTML = end;
+            if(end == 0) {
+                // Reset the data and print the message you are defeat
+                alert('You loose the game! New Game waits for you');
+                random = Math.trunc(Math.random() * 100);
+                history.innerHTML = '';
+                arrHis = [];
+                end = 10;
+                remaining.innerHTML = temp;
+                hint.innerHTML = ''; 
+            } else {
+                end = end - 1;
+                // Array - history of the guess's
+                arrHis.push(guess);
+                history.innerHTML = `[${arrHis}]`;
+                // Guess
+                checkGuess(guess);
+            }
+            
+        }
+    }
+
+    // Checking the value
+    function checkGuess(guess) {
+        if (guess === random) {
+            hint.style.color = 'green';
+            hint.innerHTML = `You won the game <br> Random number : ${random}`;
+            // Need to reset the data and shown the message you are passed
+            random = Math.trunc(Math.random() * 100);
+            history.innerHTML = '';
+            arrHis = [];
+            end = 10;
+            remaining.innerHTML = temp;
+        } else if (guess > random) {
+            hint.style.color = 'yellow';
+            hint.innerHTML = `You have to think lower number`;
+        } else {
+            hint.style.color = 'blue';
+            hint.innerHTML = 'You have to think greater number';
+        }
+    }
+
+    // Restart the game
+    button.addEventListener('click', function(e) {
+        random = Math.trunc(Math.random() * 100);
+        history.innerHTML = '';
+        arrHis = [];
+        temp = 10;
+        remaining.innerHTML = temp;
+        hint.innerHTML = '';  
+    })
+</script>
