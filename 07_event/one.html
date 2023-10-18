@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="color: aliceblue; background-color: #414141;">
+    <h2>Amazing Image</h2>
+    <div>
+        <ul id="images">
+
+            <!-- // onclick event is apply : try to not inject in html -->
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-O453M2Liufs-unsplash_qqt53u/luca-bravo-O453M2Liufs-unsplash_qqt53u_c_scale,w_1400.jpg" alt="image" id="boat" width="200px" onclick="alert('hii')"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih_c_scale,w_1441.jpg" alt="image" id="house" width="200px"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8_c_scale,w_1303.jpg" alt="image" id="tree" width="200px"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-VowIFDxogG4-unsplash_ibrktu/luca-bravo-VowIFDxogG4-unsplash_ibrktu_c_scale,w_1385.jpg" alt="image" id="mountain" width="200px"></li>
+        </ul>
+    </div>
+</body>
+
+<!-- Script -->
+<script>
+    // 2 Approch
+    document.getElementById('house').onclick = function() {
+        alert("Second photo");
+    }
+    // 3 Approch = Best approch provide many feature
+    document.getElementById('tree').addEventListener('click', function() {}, false);
+    // 4. Approch = attachEvent     used is earily time internet Explorer
+    // 5. jQurey = 
+</script>
+
+</html>
