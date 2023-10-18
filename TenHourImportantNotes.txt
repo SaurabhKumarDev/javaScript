@@ -1,0 +1,77 @@
+/----------------------------------- DOM -----------------------------------/
+
+When we use the form in html that means form will be 'submit' for storing the data
+that's why we have to use the submit type event in the js
+
+
+form will submited in the form of get and post
+form jab bhi submit hota hai toa voa do type se submit hota hai ya toa post ya phir get
+
+In second project we cannott send the data to any database that's why we have to stop the sending data (url, details)
+Here we only need to calculate general not more than that
+preventDefault
+preventDefault() won't let you check this! = Only for temp not more than that
+
+when we use number type input box
+that means js is not accept the string operation too also in window screen = ''
+
+setInterval(function () {}
+
+
+Best color combination
+
+blue with white
+black with white
+red with #414141
+
+
+JavaScript mai jitne bhi events hotey hai voa sab sequentially run hotey hai pr kuch exception bhi hoti hai
+JavaScript ak Synchronous language hai par hum kabhi kabhi inn Synchronous programming ko ignore karke ASynchronous pe bhi jate hai kuch time ke liye like delay
+
+Synchronous and ASynchronous
+Synchronous = one by one execute
+//
+ASynchronous = not one by one 
+ code = 
+ function delay_Greeting() {
+ setTimeout(function() {
+   console.log("Hello, Ninja!");
+ }, 5000); // Wait for 5000 milliseconds (5 seconds)
+}
+
+console.log("Start");
+delay_Greeting();
+console.log("End");
+//
+
+
+addEventListner = it is a powerFul listner Because of working it can be able to listne the button,click, submit,mouse, hover, keyboard
+
+
+Events
+1.) onclick() = when you click me, i will occur and start performing my jobs
+APPROCH 1
+2.) WithIn HTML -> onclick() = "alert('hii')";                  // This is not best approch //          // jquery mai ye alag baat hoti hai kiyoki vha pe ye scalable code hota hai
+APPROCH 2
+3.) within script -> select query.onclick = alert('hello');
+4.) Id ke andar onclick event pe dikat ho skti hai kiyoki ye jada feature provide nahi karta 
+    Because of this reason we suggest you to use the addEventListner kiyoki ye keval onclick nahi propogation ki ability bhi dete hai
+5.)
+
+
+
+
+
+There are three  parameter within the addEventListner 
+1.) string event type - click, submit
+2.) function - what it has to working
+3.) Third parameter is boolean false, true, BY DEFAULT false is 3rd parameter
+
+
+
+
+
+
+
+
+Whenever onclick event is called in script always use the function as a assignment type otherwise all thing will execute primary within the onclick event
