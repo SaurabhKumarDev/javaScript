@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Checker - Asynchronous Code</title>
+    
+    <!-- Style -->
+    <style>
+        body {
+            text-align: center;
+            background-color: #414141;
+            color: #fff;
+        }
+
+        button,a {
+            text-decoration: none;
+            border-radius: 12px;
+            width: 6rem;
+            padding: 10px;
+            border: 2px solid white;
+            color: white;
+            background-color: black;
+        }
+
+        button:hover,a:hover {
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Asynchronous Project</h1>
+        <h2>Color Changer : <h3>Automatically change the color When you click Start</h3></h2>
+        <h3>Stop When ever you want</h3>
+        <div class="btn">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button> <br> <br> <br>
+            <a href="../index.html">&larr;&nbsp;&nbsp;Back</a>
+        </div>
+        
+    </div>
+</body>
+
+<!-- Script -->
+<script>
+
+    // Generating random color
+    const randomColor = function() {
+
+        // Hex code for different color
+        const hex = '0123456789ABCDEF';
+
+        // color code start's with
+        let color = '#';
+
+        // Generate random code
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+
+        // Returning the random color code
+        return color;
+    };
+
+    // interval
+    let color;
+
+    // Color changer 
+    let colorChanger = function() {
+        // Selecting body tag
+        let body = document.querySelector('body');
+        body.style.backgroundColor = randomColor();
+    }
+
+    // Starting changing background color
+    document.getElementById('start').addEventListener('click', function() {
+
+        // Asynchronous color changing in each 1 second
+        color = setInterval(colorChanger, 1000);
+    })
+
+    // Stopping change background color
+    document.getElementById('stop').addEventListener('click', function() {
+        clearInterval(color);
+    })
+
+</script>
+
+</html>
