@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecting the keyboard keys - UnStopable code - Hitesh choudhary</title>
+
+    <!-- StyleSheet -->
+    <style>
+        table,tr,td,th {
+            border: 1px solid white;
+            padding: 8px;
+        }
+
+        th {
+            color: black;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #414141;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <p class="text">Press any key and see the detail of key</p>
+    <div class="table"></div>
+</body>
+</html>
+
+<!-- Script -->
+<script>
+    const table = document.querySelector('.table');
+
+    window.addEventListener('keydown', function(e) {
+        document.querySelector('.text').innerHTML = '';
+        table.innerHTML = `
+        <div class='table'>
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Key Code</th>
+                    <th>Code</th>
+                </tr>
+                <tr>
+                    <td>${e.code}</td>
+                    <td>${e.key}</td>
+                    <td>${e.keyCode}</td>
+                </tr>
+            </table>
+        </div>`;
+    })
+</script>
