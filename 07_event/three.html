@@ -1,0 +1,45 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Tag within JS and Applying CSS to that Tag using Internal CSS</title>
+
+    <!-- Style Sheet for JS created tag -->
+    <style>
+        ol {
+            color: red;
+            background-color: black;
+            width: max-content;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>I am in unordered list</li>
+        <!-- Create a tag - ol in JS-->
+            <!-- create a tag - li in JS-->
+    </ul>
+</body>
+</html>
+
+<!-- Script -->
+<script>
+    // Creating Element / Tags
+    const tagLI = window.document.createElement('li');
+    const tagOL = window.document.createElement('ol');
+
+    // Text Node
+    const text = document.createTextNode('I am in ordered list');
+
+    // Append textNode in tagLI
+    tagLI.append(text);
+
+    // Selecting tag where we have to insert tagOL
+    const ul = document.querySelector('ul');
+    
+    // appendChild - li ko ol mai || ol ko ul mai
+    tagOL.appendChild(tagLI);
+    ul.appendChild(tagOL);
+</script>
