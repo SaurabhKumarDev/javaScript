@@ -1,34 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Propagation & remove()</title>
+
+    <!-- Style -->
+    <style>
+        body {
+            color: aliceblue;
+            background-color: #414141;
+        }
+
+        img {
+            width: 200px;
+        }
+    </style>
 </head>
-<body style="color: aliceblue; background-color: #414141;">
+
+<body>
     <h2>Amazing Image</h2>
     <div>
         <ul id="images">
-
-            <!-- // onclick event is apply : try to not inject in html -->
-            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-O453M2Liufs-unsplash_qqt53u/luca-bravo-O453M2Liufs-unsplash_qqt53u_c_scale,w_1400.jpg" alt="image" id="boat" width="200px" onclick="alert('hii')"></li>
-            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih_c_scale,w_1441.jpg" alt="image" id="house" width="200px"></li>
-            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8_c_scale,w_1303.jpg" alt="image" id="tree" width="200px"></li>
-            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-VowIFDxogG4-unsplash_ibrktu/luca-bravo-VowIFDxogG4-unsplash_ibrktu_c_scale,w_1385.jpg" alt="image" id="mountain" width="200px"></li>
+            <!-- Try to inject JS : onclick event :: Line number - 28 -->
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-O453M2Liufs-unsplash_qqt53u/luca-bravo-O453M2Liufs-unsplash_qqt53u_c_scale,w_1400.jpg"
+                    alt="image" id="boat" onclick="alert('hii')"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih/luca-bravo-zAjdgNXsMeg-unsplash_q6zdih_c_scale,w_1441.jpg"
+                    alt="image" id="house"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8/luca-bravo-A-fubu9QJxE-unsplash_jxy5p8_c_scale,w_1303.jpg"
+                    alt="image" id="tree"></li>
+            <li><img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/home-demo/luca-bravo-VowIFDxogG4-unsplash_ibrktu/luca-bravo-VowIFDxogG4-unsplash_ibrktu_c_scale,w_1385.jpg"
+                    alt="image" id="mountain"></li>
         </ul>
     </div>
 </body>
 
+</html>
+
 <!-- Script -->
 <script>
-    // 2 Approch
-    document.getElementById('house').onclick = function() {
-        alert("Second photo");
-    }
-    // 3 Approch = Best approch provide many feature
-    document.getElementById('tree').addEventListener('click', function() {}, false);
-    // 4. Approch = attachEvent     used is earily time internet Explorer
-    // 5. jQurey = 
-</script>
+    // ++++++++++++++++++++++++++++++++++++++++++++ Propagation ++++++++++++++++++++++++++++++++++++++++++++ // 
 
-</html>
+    // Event bubbling = false parent selector = Third parameter = child element to its parent element.
+    // Event capturing = true parent selector = Third parameter = parent element to its child element.
+    document.getElementById('images').addEventListener('click', function (e) {
+        console.log("In <ul> tag");
+    }, true);
+    document.getElementById('mountain').addEventListener('click', function (e) {
+        console.log("Mountain image selected");
+        // Stop Propagation = stopPropagation()
+        e.stopPropagation();
+        console.log("i just clicked my self");
+    }, false);
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++ onclick ++++++++++++++++++++++++++++++++++++++++++++ // 
+
+    document.getElementById('tree').onclick = function (e) {
+        // console.log(e);
+    };
+
+
+    // ++++++++++++++++++++++++++++++++++++++++++++ remove() ++++++++++++++++++++++++++++++++++++++++++++ // 
+
+    document.querySelector('ul').onclick = function (event) {
+        // Selecting the tag of clicked item 
+        const removeThis = event.target
+        // Work : When click on image
+        if (removeThis.tagName == 'IMG') {
+            // removeThis is in the li unordered tag so first caught the li
+            // than remove
+            const removeLI = removeThis.parentNode;
+            removeLI.remove();
+        }
+    }
+
+</script>
