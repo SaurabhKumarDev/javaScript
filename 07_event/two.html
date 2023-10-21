@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color on click</title>
+
+    <!-- Style -->
+    <style>
+        .color {
+            color: red;
+            background-color: black;
+            padding: 10px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <p puneet>Hello, I am a color changer</p>
+    <button onclick="f1()">Change</button>
+</body>
+</html>
+
+<!-- Script -->
+<script>
+    // Color is changed via class(set attribute)
+    function f1() {
+        let value = document.querySelector('[puneet]');
+        document.querySelector('[puneet]').setAttribute('class', 'color');
+    }
+</script>
