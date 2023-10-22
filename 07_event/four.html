@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Code - setTimeout, setInterval, Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 1rem;
+            color: #ddd;
+            background-color: black;
+        }
+
+        button {
+            width: 8rem;
+            padding: 10px 0;
+            border-radius: 12px;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+
+        .wrapper {
+            display: none;
+        }
+
+        .banner {
+            width: 30vw;
+            height: 30vh;
+            border-radius: 12px;
+            color: black;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 2px 2px 40px rgb(21, 10, 241);
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #text {
+            color: green;
+            margin-top: 2rem;
+        }
+
+        #info {
+            color: red;
+            margin-top: 2rem;
+            margin-left: 2rem;
+            line-height: 1.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <p>I remove my self own within 2 second</p>
+    </div>
+
+    <div class="wrapper">
+        <h1>Java Script : Interval</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <p id='info'></p>
+        <p id="text"></p>
+    </div>
+</body>
+
+</html>
+
+<!-- Script -->
+<script>
+    // Temporary
+    let count = 0;
+    let intervalStart = 0;
+
+    // Banner Removed automatically within 2 second
+    setTimeout(() => {
+        document.querySelector('.banner').style.display = 'none';
+        document.querySelector('.wrapper').style.display = 'block';
+    }, 2000);
+
+    // Button
+    const start = document.querySelector('#start');
+    const stop = document.querySelector('#stop');
+    const info = document.querySelector('#info');
+
+    // Changing the button text and adding some text on id
+    start.addEventListener('click', function () {
+        start.textContent = 'Clicked';
+        stop.textContent = 'Stop';
+        info.innerHTML = 'You just Start the interval or an iteration<br>Each iteration for 2 second<br>If you want to Stop this just click the Stop button';
+
+        // Starting the interval
+        intervalStart = setInterval(intervalMessage, 2000);
+    })
+    stop.addEventListener('click', function () {
+        stop.textContent = 'Clicked';
+        start.textContent = 'Start';
+        info.innerHTML = 'You Stop this interval or an iteration<br>If you want to Start it again click the start button';
+
+        // Stopping the timeout when we click on the stop button
+        clearInterval(intervalStart);
+    })
+
+    // message fn
+    function intervalMessage() {
+        text.innerHTML += `Interval ${count}, `;
+        count++;
+    }
+</script>
