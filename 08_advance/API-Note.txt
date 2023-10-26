@@ -1,0 +1,95 @@
+///////////////////////////////////////////////////////////////////////////// API THEORY \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+What is API ?
+API is an abbreviation for Application Programming Interface which is a collection of communication protocols and subroutines used by various programs to communicate between them. A programmer can make use of various API tools to make their program easier and simpler. Also, an API facilitates programmers with an efficient way to develop their software programs. Thus in simpler terms, an API helps two programs or applications to communicate with each other by providing them with the necessary tools and functions. It takes the request from the user and sends it to the service provider and then again sends the result generated from the service provider to the desired user. 
+A developer extensively uses APIs in his software to implement various features by using an API call without writing complex codes for the same. We can create an API for an operating system, database system, hardware system, JavaScript file, or similar object-oriented files. Also, an API is similar to a GUI(Graphical User Interface) with one major difference. Unlike GUIs, an API helps software developers to access web tools while a GUI helps to make a program easier to understand by users. 
+
+How do APIs Work ?
+The client initiates the requests via the APIs URI (Uniform Resource Identifier)
+The API makes a call to the server after receiving the request
+Then the server sends the response back to the API with the information
+Finally, the API transfers the data to the client
+
+How is an API Different From a Web Application?
+An API acts as an interface that allows proper communication between two programs whereas a web application is a network-based resource responsible for completing a single task. Also, it’s important to know that “All web services are APIs, but not all APIs are web”.
+The difference between an API and a web application is that API allows two-way communication and web applications are just a way for users to interact through a web browser. A web application may have an API to complete the requests. 
+
+Types of APIs ?
+1. WEB APIs
+2. LOCAL APIs
+3. PROGRAM APIs
+4. SOAP (SIMPLE OBJECT ACCESS PROTOCOL)
+5. REST (Representational State Transfer)
+6. JSON-RPC(Remote procedural call)
+7. XML-RPC
+
+What are REST APIs?
+GET (retrieve a record)
+PUT (update a record)
+POST (create a record)
+DELETE (delete the record)
+
+Types of Testing ?
+Unit Testing
+Integration Testing
+Security Testing
+Performance Testing
+Functional Testing
+
+Example of API : We can take Zomato as an example to explain the concept of an API. Zomato receives a request for an order, the customer can track the driver’s location. Here, the API functions in this way- the Zomato app integrates with Google Map where after integration, google maps help you to track the location. 
+
+/------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
+
+
+///////////////////////////////////////////////////////////////////////////// API THEORY - XMLHttpRequest - OLDER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Prior to the advent(आगमन से पहले) of APIs (Application Programming Interfaces), data exchange in web applications was facilitated by XMLHTTP (XMLHttpRequest). XMLHttpRequest is a web API that is used in JavaScript to retrieve, upload, and process data from the server.
+The XMLHttpRequest API was first introduced in Microsoft Internet Explorer 5 and has since been supported in all major web browsers.
+The XMLHttpRequest API is used in AJAX (Asynchronous JavaScript and XML) programming, playing a crucial role in managing AJAX processes. It continues to be a valuable tool in modern web development.
+
+XMLHttpRequest : XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. 
+This enables a Web page to update just part of a page without disrupting what the user is doing.
+XMLHttpRequest is used heavily in AJAX programming.
+XMLHttpRequest can be used to retrieve any type of data, not just XML.
+
+Ajax : Asynchronous JavaScript and XML, or Ajax, is not a technology in itself, but rather an approach to using a number of existing technologies together, 
+including HTML or XHTML, CSS, JavaScript, DOM, XML, XSLT, and most importantly the XMLHttpRequest object. When these technologies are combined in the Ajax model, web applications are able to make quick, 
+incremental updates to the user interface without reloading the entire browser page. 
+This makes the application faster and more responsive to user actions. Ajax's most appealing characteristic is its "asynchronous" nature, which means it can communicate with the server, 
+exchange data, and update the page without having to refresh the page.  
+
+XMLHttpRequest: readyState property
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+
+Status of http PAGE 
+HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:
+Page url wrong (0)
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+After checking the state of the request and the HTTP status code of the response, 
+you can do whatever you want with the data the server sent. You have two options to access that data:
+    httpRequest.responseText – returns the server response as a string of text
+    httpRequest.responseXML – returns the response as an XMLDocument object you can traverse with JavaScript DOM functions 
+
+httpRequest.onreadystatechange = () => {
+  // Process the server response here.
+};
+
+Next, after declaring what happens when you receive the response, you need to actually make the request, by calling the open() and send() methods of the HTTP request object, like this:
+xhr.open('GET', 'http://jsonplaceholder.typicode.com/users/');      
+ 1. The first parameter of the call to open() is the HTTP request method – GET, POST, HEAD, or another method supported by your server. Keep the method all-capitals.
+ 2. The second parameter is the URL you're sending the request to.
+ 3. The optional third parameter sets whether the request is asynchronous. If true (the default), JavaScript execution will continue 
+
+Internet Explorer 5 changed this in 1998 with the introduction of XMLHttpRequest, an API meant to overcome this limitation. 
+Initially, XMLHttpRequest was designed to fetch XML data via HTTP, hence the name. Sometime after it was released, however, support for other data formats — primarily JSON, HTML, and plaintext — was added.
+
+/------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
