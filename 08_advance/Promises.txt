@@ -1,0 +1,52 @@
+URLs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+    -> A promise object represents the completion (or failure) of an asynchronous operation.
+    -> It represents the value as a result.
+    -> Here, the meaning of 'promise' is that an operation or task that is not immediately completed, but is expected to be completed after some time.
+    -> If the task is successfully completed, we obtain its resulting value, else we get the reason for its failure.
+
+This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, 
+the asynchronous method returns a promise to supply the value at some point in the future.
+
+Their are 3 states of Promise 
+    1. Pending - initial state, neither fulfilled nor rejected.
+    2. Fulfilled - meaning that the operation was completed successfully.
+    3. Rejected - meaning that the operation failed.
+A promise is said to be settled if it is either fulfilled or rejected, but not pending.
+Promise - Pending
+    fulfill
+        .then(onfulfillment) - settled
+            async action
+            return - Promise - Pending
+    reject
+        .then(..., onRejection)
+            return - Promise - pending
+        .catch(onRejection)
+            error handling
+
+HISTORY
+Before promises async await, Q and BlueBird are used 
+Promises - then and  catch
+
+Their are two type of promise
+    1. Consume
+    2. Create
+
+Their can be able to have multiple callback function
+
+Before consuming the promises, we must have to learn the creation of promise
+Maximum time we consume the Promises
+
+यह मुख्य रूप से उन callback-based APIs को wrap करने के लिए उपयोग किया जाता है, जो पहले से ही promises का समर्थन नहीं करते हैं। 
+यहाँ, ‘wrap’ का मतलब है कि किसी API को ‘Promise’ object में बंद करना, जिससे कि उस API का result एक ‘Promise’ के रूप में प्राप्त हो सके। 
+‘Callback-based APIs’ वे APIs होते हैं, जो किसी function को call करते हैं (जिसे ‘callback function’ कहते हैं) जब वे अपना task पूरा कर लेते हैं।
+
+Promise can be handle via then and catch, finally 
+Promise can be also handled by the async await
+
+Async 
+The async function declaration creates a binding of a new async function to a given name. 
+The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.
+It will wait to complete the job, when job is completed then it will go forward otherwise shown an error at that point, 
+We cannot handle catch gracefully that is the issue of this async await 
