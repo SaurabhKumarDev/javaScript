@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+</html>
+
+<!-- Script -->
+<script>
+    class check {
+        constructor() {
+            this.server = 'https.//localhost/200';
+            this.library = 'React';
+            // requirement, above are not accessible so use the bind keyword for access
+
+            document
+                .querySelector('button')
+                .addEventListener('click', this.anotherFn
+                .bind(this));
+        }
+
+        anotherFn() {
+            // after using the bind keyword above are accessed or this context 
+            // Here, also present button reference, HTML code accessible in 'this'
+            console.log(`${this.server}`);
+        }
+    }
+
+    const app = new check();
+</script>
