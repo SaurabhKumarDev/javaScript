@@ -1,77 +1,262 @@
-/----------------------------------- DOM -----------------------------------/
+//--------------------------------------------------------------- DOM ---------------------------------------------------------------//
 
-When we use the form in html that means form will be 'submit' for storing the data
-that's why we have to use the submit type event in the js
+--------------------------------------------------------- Pending Study ---------------------------------------------------------
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName
+https://developer.mozilla.org/en-US/docs/Web/API/Event
+https://www.w3schools.com/jsref/dom_obj_document.asp
+
+Event learn
+  1.) type 
+  2.) timestamp 
+  3.) defaultPrevented - when we fill any form than it is used 
+  4.) target 
+  5.) toElement
+  6.) srcElementt
+  7.) currentTarget,
+  8.) clientX 
+  9.) clientY 
+  10.) screenX 
+  11.) screenY
+  12.) altkey 
+  13.) ctrlkey
+  14.) shiftkey
+  15.) keyCode(like a,b,c key code)
+  16.) .remove() = The remove() method removes an element (or node) from the document.
+
+ 
+--------------------------------------------------------- Important ---------------------------------------------------------
+
+Injecting JavaScript into HTML is not considered best practice for coding
+Number type input box, input text is not allow to perform the String operation.
+For a better experience, always use capital letters for tag names in any comparisons.
+
+The target property returns the element on which the event occurred, opposed to the currentTarget property, which returns the element whose event listener triggered the event.
+The target property is read-only.
+
+ITEM IN VERTICAL MIDDLE
+display: table-cell;
+vertical-align: middle;
+
+msg() = execute & msg = reference, function definition
+Provide reference in setTimeout, setInterval, onClick event
+
+In js, we use maximum objects not a class
+
+When we write two time console.log : First console.log Print the exact value which you want another gives undefined
+
+JavaScript default behavior is Prototype-based
+
+str.length = Properties & str.trueLength() = methods
+
+Within constructor, attached 'this' keyword element also print when call that constructor
+Other are not allow to print directly
 
 
-form will submited in the form of get and post
-form jab bhi submit hota hai toa voa do type se submit hota hai ya toa post ya phir get
+--------------------------------------------------------- Form in JS ---------------------------------------------------------
 
-In second project we cannott send the data to any database that's why we have to stop the sending data (url, details)
-Here we only need to calculate general not more than that
-preventDefault
-preventDefault() won't let you check this! = Only for temp not more than that
-
-when we use number type input box
-that means js is not accept the string operation too also in window screen = ''
-
-setInterval(function () {}
+When using a 'form' and invoking it in JavaScript for a certain event, it is essential to use the ‘submit’ type event to performing some operation.
+When a form is submitted, the entered data is typically sent to the database. However, to apply JavaScript, we first need to stop the data from being sent to the database. 
+We then validate it and send it to the Document Object Model (DOM). This can be achieved with the help of ‘preventDefault’.
 
 
-Best color combination
+--------------------------------------------------------- HTML DOM Document ---------------------------------------------------------
+
+When an HTML document is loaded into a web browser, it becomes a document object.
+The document object is the root node of the HTML document.
+The document object is a property of the window object.
+The document object is accessed with: window.document or just document
+
+
+--------------------------------------------------------- addEventListener ---------------------------------------------------------
+
+The addEventListener() method attaches an event handler to a document.
+It's a powerful listener. 
+Due to its functionality, it is capable of detecting various events such as button clicks, form submissions, mouse hovers, and keyboard inputs.
+
+document.addEventListener(event, function, Capture)
+event = Required, The event name, Use "click" instead of "onclick".
+function = Required.
+            The function to run when the event occurs.
+            For example, the "click" event belongs to the MouseEvent object.
+Capture = Optional (default = false).
+          true - The handler is executed in the capturing phase.
+          false - The handler is executed in the bubbling phase.
+
+
+--------------------------------------------------------- body ---------------------------------------------------------
+
+The body property sets or returns a document's <body> element.
+Warning - Setting the body property overwrites all elements in the document's <body>.
+document.body returns the <body> element.
+
+
+--------------------------------------------------------- HTML Document Open, write, close ---------------------------------------------------------
+
+Open a document, write some text to it, and close it:
+document.open();
+document.write("<h1>Hello World</h1>");
+document.write("<p>Open over writes original content.</p>");
+document.close();
+
+
+--------------------------------------------------------- Attribute : create, set ---------------------------------------------------------
+
+The createAttribute() method creates an attribute and returns the attribute as an Attr object.
+document.createAttribute(name)
+name = Required, The name of the attribute to create, Ex. class,id,href
+
+Set the class attribute : color
+document.querySelector('p').setAttribute('class', 'color');
+
+
+--------------------------------------------------------- Color ---------------------------------------------------------
 
 blue with white
 black with white
-red with #414141
+red with #414141, #313131
 
 
-JavaScript mai jitne bhi events hotey hai voa sab sequentially run hotey hai pr kuch exception bhi hoti hai
-JavaScript ak Synchronous language hai par hum kabhi kabhi inn Synchronous programming ko ignore karke ASynchronous pe bhi jate hai kuch time ke liye like delay
+--------------------------------------------------------- preventDefault ---------------------------------------------------------
 
-Synchronous and ASynchronous
-Synchronous = one by one execute
-//
-ASynchronous = not one by one 
- code = 
- function delay_Greeting() {
- setTimeout(function() {
-   console.log("Hello, Ninja!");
- }, 5000); // Wait for 5000 milliseconds (5 seconds)
+In second project we cannot want to send the data to anywhere that's why we have to stop that.
+Method : preventDefault()
+
+
+--------------------------------------------------------- Synchronous and ASynchronous ---------------------------------------------------------
+
+In JavaScript, all events run sequentially(synchronous) and also js is byDefault Synchronous, but there are some exceptions. 
+Sometimes we ignore synchronous programming and switch to asynchronous for a while, such as during delays.
+ASynchronous is translated as Async code
+JavaScript is single-threaded, which can make it slow. However, it doesn’t appear slow to you. The good thing about JavaScript is that wherever it is used, there will always be something available in the environment, such as Node.js or a browser’s runtime environment.
+
+CODE OF ASYNCHRONOUS :- 
+function delay_Greeting() {
+  setTimeout(function() {
+  console.log("Hello, Ninja!");
+}, 5000); // Wait for 5000 milliseconds (5 seconds)
 }
-
 console.log("Start");
 delay_Greeting();
 console.log("End");
-//
+
+OUTPUT :-
+Start
+End 
+Hello, Ninja!
+
+Some useful function's for asynchronous
+1. setInterval
+2. setTimeout
 
 
-addEventListner = it is a powerFul listner Because of working it can be able to listne the button,click, submit,mouse, hover, keyboard
+--------------------------------------------------------- Event's ---------------------------------------------------------
 
-
-Events
 1.) onclick() = when you click me, i will occur and start performing my jobs
-APPROCH 1
-2.) WithIn HTML -> onclick() = "alert('hii')";                  // This is not best approch //          // jquery mai ye alag baat hoti hai kiyoki vha pe ye scalable code hota hai
-APPROCH 2
-3.) within script -> select query.onclick = alert('hello');
-4.) Id ke andar onclick event pe dikat ho skti hai kiyoki ye jada feature provide nahi karta 
-    Because of this reason we suggest you to use the addEventListner kiyoki ye keval onclick nahi propogation ki ability bhi dete hai
-5.)
+  a. Within HTML, using onclick() = "alert('hi')"; is not considered the best approach. 
+  b. within script -> select_query.onclick = alert('hello');
+  c. There can be issues with the onclick event inside an ID because it doesn’t provide many features. 
+    For this reason, we suggest using addEventListener as it not only handles onclick but also provides the ability for event propagation.
+  d. Whenever onclick event is called in script always use the function as a assignment type.
 
 
+--------------------------------------------------------- Propagation ---------------------------------------------------------
+
+Event propagation describes the order in which the events travel through the DOM tree when the web browser fires them.
+Assume there is a form tag inside a div tag, and both have onclick event listeners. Event Propagation describes how one event listener may fire after the other.
+
+There are two types of propagation:
+1. Event bubbling, by which events bubble upwards, from child to parent, Event bubbling means the direction of event propagation will be from the child element to its parent element.
+2. Event capturing, by which events travel downwards, from parent to child, With event capturing, the order of propagation is the opposite of bubbling, The only difference with capturing is that events occur from parent to child.
+
+How Can You Prevent Event Propagation?
+You can stop the propagation of events using the stopPropagation() method. 
+The addEventListener() method accepts an event name and a handler function. 
+The handler takes an event object as its parameter. 
+This object holds all the information about the event.     
+ 
+
+--------------------------------------------------------- setInterval ---------------------------------------------------------
+
+The setInterval() method calls a function at specified intervals (in milliseconds).
+The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.
+1 second = 1000 milliseconds.
+
+To clear an interval, use the id returned from setInterval():
+myInterval = setInterval(function, milliseconds);
+Then you can to stop the execution by calling clearInterval():
+clearInterval(myInterval);
+
+Syntax :
+setInterval(function, milliseconds, param1, param2, ...)
+function	Required   -   The function to execute
+milliseconds	Required   -   The execution interval
+param1, param2,...   -   Additional parameters to pass to the function
 
 
+--------------------------------------------------------- setTimeout ---------------------------------------------------------
 
-There are three  parameter within the addEventListner 
-1.) string event type - click, submit
-2.) function - what it has to working
-3.) Third parameter is boolean false, true, BY DEFAULT false is 3rd parameter
+The setTimeout() method calls a function after a number of milliseconds.
+The setTimeout() is executed only once.
+If you need repeated executions, use setInterval() instead.
+Use the clearTimeout() method to prevent the function from starting.
+
+To clear a timeout, use the id returned from setTimeout():
+myTimeout = setTimeout(function, milliseconds);
+Then you can to stop the execution by calling clearTimeout():
+clearTimeout(myTimeout);
 
 
+--------------------------------------------------------- v8 Engine ---------------------------------------------------------
+
+The V8 engine is an open-source JavaScript engine developed by Google, written in C++. It is used to create Node.js for server-side coding. The V8 engine is utilized by various languages including Couch base and MongoDB.
+V8 is known to be a JavaScript engine because it takes JavaScript code and executes it while browsing in Chrome. It provides a runtime environment for the execution of JavaScript code. The best part is that the JavaScript engine is completely independent of the browser in which it runs.
+Node.js is referred to as a runtime environment since it contains everything you need to run a JavaScript program.
+This V8 engine is at the heart of Node.js.
+A packet of JavaScript contains C++ code for the JavaScript engine.
 
 
+--------------------------------------------------------- console log ---------------------------------------------------------
+
+It's a function provided by the browser's JavaScript engine and is not part of the JavaScript code you write. It's used to print output to the console, which is extremely helpful when debugging your code.
 
 
+--------------------------------------------------------- async and await ---------------------------------------------------------
+
+await always comes with async 
+await is used for providing some time to do the job, otherwise it goes into pending state
+fetch is used for taking link from the urls or we say that taking the data online 
+json is used to convert the achieve data into readable form for reading those data
+The async function declaration creates a binding of a new async function to a given name. 
+The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.
+It will wait to complete the job, when job is completed then it will go forward otherwise shown an error at that point, 
+We cannot handle catch gracefully that is the issue of this async await 
 
 
-Whenever onclick event is called in script always use the function as a assignment type otherwise all thing will execute primary within the onclick event
+--------------------------------------------------------- new ---------------------------------------------------------
+
+First empty object is created, known as instance
+Second Constructor function call and then pack all the argument itself and then it will give to you
+Third this keyword : all argument inject in this than you got your function
+
+Here's what happens behind the scenes when the new keyword is used:
+A new object is created: The new keyword initiates the creation of a new JavaScript object.
+A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and 
+methods defined on the constructor's prototype.
+After creation of new object the prototype property of the constructor function is linked
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value 
+is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+Constructor called
+The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly 
+created object is returned.
+
+
+--------------------------------------------------------- this ---------------------------------------------------------
+
+The value of 'this' depends on in which context it appears: function, class, or global.
+'this' gives you current context
+The ‘this’ keyword refers to the global execution context. 
+However, there can be issues with the ‘this’ keyword. 
+When you have a window object, it will access the window object. 
+But when it is not available or a node environment occurs, it gives you an empty object. 
+It’s important to note that every function has its own separate ‘this’. 
