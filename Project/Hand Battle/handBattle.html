@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            color: white;
+            font-size: 2rem;
+            padding: 12px 0;
+            text-align: center;
+            background-color: rgb(40, 40, 104);
+        }
+
+        .gameBody {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 27rem;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        img {
+            margin-left: 15px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .scores {
+            display: flex;
+            font-size: larger;
+            font-weight: 800;
+            gap: 50px;
+        }
+
+        #one,
+        #two {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        span {
+            font-size: 2rem;
+        }
+
+        button {
+            padding: 12px;
+            background-color: black;
+            border: 0;
+            border-radius: 10px;
+            font-size: large;
+            width: 10rem;
+            color: white;
+        }
+
+        img:hover {
+            border: 3px dashed;
+        }
+
+        button:hover {
+            background-color: rgb(24, 65, 99);
+        }
+
+        #help {
+            color: black;
+            bottom: 10px;
+            right: 10px;
+            font-size: larger;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>ROCK PAPER SCISSOR</header>
+        <div class="gameBody">
+            <div class="images">
+                <img src="images/rock.jpg" alt="" id="rock">
+                <img src="images/paper.jpg" alt="" id="paper">
+                <img src="images/scissor.jpg" alt="" id="scissor">
+            </div>
+            <div class="scores">
+                <section id="one">
+                    <span id="user">0</span>
+                    <p>You</p>
+                </section>
+                <section id="two">
+                    <span id="computer">0</span>
+                    <p>Computer</p>
+                </section>
+            </div>
+            <div class="buttons">
+                <button>Your move !</button>
+            </div>
+        </div>
+        <p id="help"></p>
+    </main>
+</body>
+<script src="game.js"></script>
+
+</html>
