@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi, Delhi, India || Whether forcast</title>
+
+    <link rel="icon" type="image/x-icons" href="assets/favicon-EazlgNxW.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-zi4ng3sL.css">
+</head>
+
+<body class="bg-slate-100">
+
+    <!-- Navigation bar -->
+    <nav class="flex bg-red-800 h-14 text-lg justify-center gap-28 items-center max-sm:gap-12">
+        <div class="left">
+            <span class="text-white"> Whether App</span>
+            <div class="current">
+                <span currentLocation></span>
+            </div>
+        </div>
+        <form class="searchBar pb-2 bg-blue-100 h-7 rounded-lg">
+            <input type="text" id="inputBox" placeholder="Address or City"
+                class="rounded-lg max-sm:w-40 w-64 bg-blue-100 focus:outline-none pl-3" autocomplete="off">
+            <button type="submit" class="bg-blue-200 px-3 rounded-lg"><i class="fa fa-search"></i></button>
+        </form>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+        <section
+            class="max-lg:h-full h-64 bg-white max-sm:mx-10 mx-16 mt-16 p-4 flex justify-between max-lg:flex-col max-lg:gap-8">
+            <div class="left">
+                <p class="font-extrabold">Current Whether</p>
+                <p id="time"></p>
+                <div class="flex my-3 max-lg:justify-between max-lg:mx-10">
+                    <img src="assets/sun-zpy4F5j8.png" alt="" class="h-32 homeImage max-sm:h-24">
+                    <p id="temp" class="text-8xl ml-5 font-light max-sm:text-4xl"></p>
+                </div>
+                <p id="mosam">Sunny</p>
+            </div>
+            <div class="right text-xl my-2 mx-5">
+                <p id="rfs" class="flex justify-between gap-24"><span class="font-medium">City</span> <span
+                        id="city"></span></p>
+                <hr class="my-2">
+                <p id="rfs" class="flex justify-between gap-24"><span class="font-medium">Visibility</span> <span
+                        id="visibility"></span></p>
+                <hr class="my-2">
+                <p id="aq" class="flex justify-between gap-24"><span class="font-medium">Humidity</span><span
+                        id="air"></span></p>
+                <hr class="my-2">
+                <p class="flex justify-between gap-24 max-sm:gap-10"><span class="font-medium">Wind Speed</span><span
+                        id="wind"></span></p>
+                <hr class="my-2">
+                <p id="wg" class="flex justify-between gap-24"><span class="font-medium">Country</span><span
+                        id="country"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="fixed bottom-0 bg-slate-300 w-full h-24 items-center flex justify-center">
+        <p class="text-2xl">Wheather Report</p>
+    </footer>
+</body>
+<script src="assets/script.js"></script>
+
+</html>
