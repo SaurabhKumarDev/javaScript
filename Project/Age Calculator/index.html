@@ -1,0 +1,131 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - My First Project_Of My Thinking</title>
+
+    <!-- Style sheet -->
+    <style>
+        * {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            font-family: 'Times New Roman', Times, serif;
+            position: fixed;
+        }
+        img {
+            height: 100vh;
+            width: 100vw;   
+            position: absolute;
+        }
+        form {
+            margin-left: 65vw;
+            margin-top: 12vh;
+            position: relative;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            line-height: 3.5rem;
+            background-image: linear-gradient(to right, red, green);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .flex {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        input, #Year {
+            color: white;
+            padding: 5px 10px;
+            background-color: transparent;
+            border: 0;
+            border-bottom: 1px solid white;
+        }
+        #Year {
+            width: 10rem;
+        }
+        button {
+            width: 20rem;
+            padding: 8px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+        .result {
+            margin-top: 2rem;
+            color: green;
+            font-size: 1.5rem;
+        }
+        .id {
+            color: white;
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="image/image.jpg" alt="Background-Picture">
+        <form action="">
+            <h1 style="font-family: cursive;">Age Calculator</h1>
+            <p class="id"></p>
+            <div class="input flex">
+                <label for="yob">Year of Birth</label>
+                <input type="number" id="yob">
+            </div>
+            <div class="currentYear flex">
+                <p>Current Year</p>
+                <p id="Year"></p>
+            </div>
+            <button>Calculate</button>
+            <p class="result"></p>
+        </form>
+    </main>
+</body>
+</html>
+
+<!-- Script -->
+<script>
+    // Date - Print Current Year
+    let date = new Date();
+    let year = date.getFullYear();
+    document.querySelector('#Year').innerHTML = year;
+
+    // User ID - via time in MM
+    document.querySelector('.id').innerHTML = `Your ID : ${date.getTime()}`;
+    
+    // Select form - for submit button
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+        
+        // Data is holding for Calculation and Printing - Not for sending anywhere (GET and POST)
+        e.preventDefault();
+
+        // Input from user
+        const input = parseInt(document.querySelector('#yob').value);
+        // Printing Result
+        const result = document.querySelector('.result');
+
+        // Calculate age
+        const age = year - input;
+
+        // Age Conditions
+        if (!(input)) {
+            result.innerHTML = `Please, Enter age first!`;
+        } else if (input > year) {
+            result.innerHTML = `Enter Correct AGE!`;
+        } else {
+            result.innerHTML = `Age : ${age}`;
+        }
+    })
+</script>
